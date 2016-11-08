@@ -10,7 +10,7 @@ Group=transcoder
 Restart=always
 
 ExecStartPre=/opt/taco/rm.sh
-ExecStart=/opt/taco/transcoder.sh
+ExecStart=/opt/taco/taco.sh
 
 [Install]
 WantedBy=multi-user.target
