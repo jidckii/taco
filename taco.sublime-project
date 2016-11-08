@@ -1,0 +1,33 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"rsync_ssh":
+		{
+			"excludes":
+			[
+				".git*",
+				"*.sublime-*"
+			],
+			"remotes":
+			{
+				"/home/emedvedev/Документы/taco":
+				[
+					{
+						"enabled": 1,
+						"remote_host": "172.20.0.10",
+						"remote_path": "/home/emedvedev/taco",
+						"remote_port": 22,
+						"remote_user": "emedvedev"
+					}
+				]
+			},
+			"sync_on_save": true
+		}
+	}
+}

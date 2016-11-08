@@ -1,0 +1,16 @@
+[Unit]
+Description=Transcoder Automatic Converter (taco)
+Documentation=https://github.com/jidckii/taco
+After=network.target
+
+[Service]
+User=transcoder
+Group=transcoder
+
+Restart=always
+
+ExecStartPre=/opt/taco/rm.sh
+ExecStart=/opt/taco/transcoder.sh
+
+[Install]
+WantedBy=multi-user.target
