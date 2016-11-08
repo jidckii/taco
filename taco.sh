@@ -20,8 +20,10 @@ while true; do
     fi
 
     next_file=`ls -t -r -1 $queue_path | awk '{print $1}' | head -n 1`
-    mv $queue_path$next_file $source_path
-    end_file=`ls -1 $source_path | awk -F. '{print $1}'`
+    cp $queue_path$next_file $source_path
+    sleep 1
+    rm $queue_path$next_file
+    end_file=`ls -1 $source_path`
 
     sleep 1
     ps_status=`ps -e | grep ffmpeg | wc -l`
@@ -45,6 +47,6 @@ while true; do
     cp -R $trans_path$end_file.mp4 $end_path
     cp -R $log_dir$end_file.tar $end_path
     sleep 1
-    rm -r -f $source_path* && rm -r -f $trans_path* && rm -r -f $log_dir* > /dev/null 2>&1
+    # rm -r -f $source_path* && rm -r -f $trans_path* && rm -r -f $log_dir* > /dev/null 2>&1
   done
 done
