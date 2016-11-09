@@ -12,7 +12,7 @@ while true; do
 
   while [ "$tmp_video_size1" -gt "1000" ]; do   # Проверям размер раталога
     tmp_video_size1=`du -s $queue_path | awk '{print $1}'`
-    sleep 10
+    sleep 60
     tmp_video_size2=`du -s $queue_path | awk '{print $1}'`
 
     if [ "$tmp_video_size1" -ne "$tmp_video_size2" ]; then  # Убеждаемся, что временный каталог более не растет
@@ -47,6 +47,6 @@ while true; do
     cp -R $trans_path$end_file.mp4 $end_path
     cp -R $log_dir$end_file.tar $end_path
     sleep 1
-    # rm -r -f $source_path* && rm -r -f $trans_path* && rm -r -f $log_dir* > /dev/null 2>&1
+    rm -r -f $source_path* && rm -r -f $trans_path* && rm -r -f $log_dir* > /dev/null 2>&1
   done
 done
